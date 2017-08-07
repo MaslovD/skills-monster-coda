@@ -1,0 +1,111 @@
+<div class="navbar-wrap">
+  <div class="navbar-button" [ngClass]="{ 'open' : openedSidebar }" (click)="openSidebar()">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <h1 class="page-title">{{ title }}</h1>
+
+  <div class="nav-items">
+    <div class="nav-item" [ngClass]="{ 'opened' : false }">
+      <a href="#" (click)="open($event)" class="nav-link">
+        <span class="icon sli-bell"></span>
+        <span class="marker"></span>
+      </a>
+
+      <div class="dropdown-menu">
+        <h4 class="menu-title">Notifications</h4>
+
+        <ul>
+          <li>
+            <a href="#">
+              <span class="icon sli-puzzle"></span>
+              <div class="content">
+                <span class="desc">This is a new message for my dear friend <strong>Rob</strong>.</span>
+                <span class="date">10 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon sli-playlist"></span>
+              <div class="content">
+                <span class="desc">Your site visits have increased <strong>15.5%</strong> more since the last week.</span>
+                <span class="date">23 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon sli-globe"></span>
+              <div class="content">
+                <span class="desc">Server loaded by 98% please recover soon</span>
+                <span class="date">25 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon sli-feed"></span>
+              <div class="content">
+                <span class="desc">We're looking to hire two more protypers to our team.</span>
+                <span class="date">32 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon sli-cup"></span>
+              <div class="content">
+                <span class="desc">This is a new message for my dear friend <strong>Rob</strong>.</span>
+                <span class="date">58 minutes ago</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <div class="menu-footer">
+          <a href="#">View all notifications</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item" [ngClass]="{ 'opened' : false }">
+      <a href="#" (click)="openAddition($event)" class="nav-link">
+        <span class="icon sli-note"></span>
+      </a>
+    </div>
+
+    <div class="nav-item" [ngClass]="{ 'opened' : false }">
+      <a href="#" (click)="open($event)" class="nav-link">
+        <span class="icon sli-user"></span>
+      </a>
+
+      <div class="dropdown-menu mini-menu">
+        <ul>
+          <li>
+            <a href="#"><span class="icon sli-home"></span> My Account</a>
+          </li>
+          <li>
+            <a href="#"><span class="icon sli-user"></span> Profile</a>
+          </li>
+          <li>
+            <a href="#" routerLink="/default-layout/calendar"><span class="icon sli-calendar"></span> Calendar</a>
+          </li>
+          <li>
+            <a href="#"><span class="icon sli-settings"></span> Settings</a>
+          </li>
+          <li>
+            <a href="#"><span class="icon sli-logout"></span> Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="items-overlay" (click)="close($event)"></div>
+  </div>
+</div>

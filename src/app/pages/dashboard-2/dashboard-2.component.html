@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="col-md-6 col-xl-3">
+    <ni-card [customBgColor]="'rgba(44,67,91,0.97)'" [customColor]="'#fff'" [bgImage]="'assets/content/card-4.jpg'" class="info-card">
+      <div class="title text-uppercase">Orders</div>
+      <div class="count">2,145</div>
+      <ni-badge [customColor]="'rgba(255,255,255,0.3)'" [borderRadius]="false">+17%</ni-badge> <small>from previous period</small>
+    </ni-card>
+  </div>
+
+  <div class="col-md-6 col-xl-3">
+    <ni-card [customBgColor]="'rgba(44,67,91,0.97)'" [customColor]="'#fff'" [bgImage]="'assets/content/card-5.jpg'" class="info-card">
+      <div class="title text-uppercase">Revenue</div>
+      <div class="count">$ 50,24</div>
+      <small>11750</small>
+    </ni-card>
+  </div>
+
+  <div class="col-md-6 col-xl-3">
+    <ni-card [customBgColor]="'rgba(44,67,91,0.97)'" [customColor]="'#fff'" [bgImage]="'assets/content/card-6.jpg'" class="info-card">
+      <div class="title text-uppercase">Products</div>
+      <div class="count">2,543</div>
+      <ni-badge [customColor]="'rgba(255,255,255,0.3)'" [borderRadius]="false">+210</ni-badge>
+    </ni-card>
+  </div>
+
+  <div class="col-md-6 col-xl-3">
+    <ni-card [customBgColor]="'rgba(44,67,91,0.97)'" [customColor]="'#fff'" [bgImage]="'assets/content/card-7.jpg'" class="info-card">
+      <div class="title text-uppercase">Sold</div>
+      <div class="count">1,005</div>
+      <ni-badge [customColor]="'rgba(255,255,255,0.3)'" [borderRadius]="false">+24%</ni-badge>
+    </ni-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <ni-card class="mb-lg-0">
+      <canvas
+        baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"></canvas>
+    </ni-card>
+  </div>
+
+  <div class="col-lg-6">
+    <ni-card [bgColor]="''" class="chart-card">
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          [colors]="pieChartColors"
+          [labels]="pieChartLabels"
+          [legend]="false"
+          [options]="pieChartOptions"
+          [chartType]="pieChartType"></canvas>
+      </div>
+      <div class="info">
+        <div class="title"><strong>930</strong> <small>Resolved</small></div>
+        <div class="small">More than 70% resolved issues</div>
+      </div>
+    </ni-card>
+    <ni-card [bgColor]="''" class="chart-card">
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="doughnutChartData"
+          [colors]="doughnutChartColors"
+          [labels]="doughnutChartLabels"
+          [legend]="false"
+          [options]="doughnutChartOptions"
+          [chartType]="doughnutChartType"></canvas>
+      </div>
+      <div class="info">
+        <div class="title"><strong>466</strong> <small>Unresolved</small></div>
+        <div class="small">Less than 30% unresolved issues</div>
+      </div>
+    </ni-card>
+    <ni-card [bgColor]="''" class="chart-card">
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="polarAreaChartData"
+          [colors]="polarAreaChartColors"
+          [labels]="polarAreaChartLabels"
+          [legend]="false"
+          [options]="polarAreaChartOptions"
+          [chartType]="polarAreaChartType"></canvas>
+      </div>
+      <div class="info">
+        <div class="title"><strong>1,547</strong> <small>Issues</small></div>
+        <div class="small">8 issues are unassigned</div>
+      </div>
+    </ni-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-xl-4">
+    <ni-card [title]="'To do list'" class="mb-xl-0">
+      <md-list>
+        <md-list-item *ngFor="let folder of folders">
+          <md-icon md-list-avatar>{{folder.icon}}<ni-badge *ngIf="folder.badge" [color]="'danger'" [position]="'top-right'">{{folder.badge}}</ni-badge></md-icon>
+          <h4 md-line>{{folder.name}}</h4>
+          <p md-line><i>{{folder.updated}}</i></p>
+        </md-list-item>
+      </md-list>
+    </ni-card>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <ni-chat [activeUser]="activeUser" [messages]="chat" [style.height.px]="535"></ni-chat>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <ni-card [title]="'JS frameworks'" class="mb-0">
+      <p class="mb-1"><strong>Angular</strong></p>
+      <md-progress-bar mode="determinate" color="accent" [value]="98" class="mb-4"></md-progress-bar>
+
+      <p class="mb-1"><strong>React</strong></p>
+      <md-progress-bar mode="determinate" color="warn" [value]="85" class="mb-4"></md-progress-bar>
+
+      <p class="mb-1"><strong>Vue.js</strong></p>
+      <md-progress-bar mode="determinate" [value]="40" class="mb-4"></md-progress-bar>
+
+      <p class="mb-1"><strong>Backbone.js</strong></p>
+      <md-progress-bar mode="determinate" [value]="38" class="mb-4"></md-progress-bar>
+
+      <p class="mb-1"><strong>Ember.js</strong></p>
+      <md-progress-bar mode="determinate" color="accent" [value]="54" class="mb-4"></md-progress-bar>
+
+      <p class="mb-1"><strong>Meteor.js</strong></p>
+      <md-progress-bar mode="determinate" color="warn" [value]="38" class="mb-4"></md-progress-bar>
+
+      <p class="mb-1"><strong>Mercury</strong></p>
+      <md-progress-bar mode="determinate" color="warn" [value]="33" class="mb-4"></md-progress-bar>
+
+      <p class="mb-1"><strong>jQuery</strong></p>
+      <md-progress-bar mode="determinate" [value]="61"></md-progress-bar>
+    </ni-card>
+  </div>
+</div>

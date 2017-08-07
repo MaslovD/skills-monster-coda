@@ -1,0 +1,197 @@
+@import '../../../../assets/sass/variable';
+
+:host {
+  background: main-color(300);
+  bottom: 0;
+  box-shadow: -5px 0 5px -4px rgba(#000,.25);
+  color: main-contrast(500);
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translate(300px, 0);
+  transition:
+    .2s transform 0s $animation,
+    0s z-index .2s $animation;
+  width: 300px;
+  z-index: 9997;
+  @media #{$max543} {
+    transform: translate(270px, 0);
+    width: 270px;
+  }
+
+  .rtl & {
+    left: 0;
+    right: auto;
+    transform: translate(-300px, 0);
+    @media #{$max543} {
+      transform: translate(-270px, 0);
+    }
+  }
+  &.open {
+    transform: translate(0, 0);
+    transition:
+      .2s transform 0s $animation,
+      .2s z-index 0s $animation;
+    z-index: 9999;
+  }
+  .navbar-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+    .navbar-content {
+      flex-grow: 1;
+      overflow: auto;
+      width: 100%;
+
+      /deep/ .mat-tab-group {
+        .mat-tab-header {
+          background: main-color(700);
+
+          .mat-tab-label-container {
+            .mat-tab-list {
+              .mat-tab-labels {
+                .mat-tab-label {
+                  background: none;
+                  color: main-contrast(700);
+                  height: auto;
+                  line-height: 1;
+                  min-width: ($module-rem * 4);
+                  opacity: 1;
+                  padding: ($module-rem) $module-rem;
+                  width: 33%;
+
+                  .icon {
+                    color: inherit;
+                    font-size: 20px;
+                    line-height: 1;
+                  }
+                }
+              }
+              .mat-ink-bar {
+                background: accent-color(500);
+              }
+            }
+          }
+        }
+        .mat-tab-body-wrap {
+
+        }
+      }
+      .addition-menu {
+        padding: 0;
+
+        .menu-title,
+        .menu-footer {
+          margin: 0;
+          padding: $module-rem;
+          text-align: center;
+        }
+        .menu-title {
+          border-bottom: 1px solid rgba(main-color(500),.1);
+          color: main-color(500);
+          font-size: 16px;
+          line-height: 1.3;
+        }
+        .menu-footer {
+          background: $navbar-dropdown-dark-bg;
+
+          a {
+            color: main-contrast(300);
+
+            &:hover {
+              color: rgba(main-contrast(300),.8);
+            }
+          }
+        }
+        > ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+
+          > li {
+            border-bottom: 1px solid rgba(main-color(500),.05);
+
+            &:last-child {
+              border-bottom: 0;
+            }
+            > a {
+              align-items: center;
+              color: $navbar-dropdown-color;
+              display: flex;
+              padding: $module-rem;
+              transition:
+                background .2s $animation,
+                color .2s $animation;
+
+              &:hover {
+                @media #{$min992} {
+                  background: $navbar-dropdown-bg-hover;
+                  color: $navbar-dropdown-color-hover;
+
+                  .icon,
+                  .mat-icon {
+                    background: rgba(accent-contrast(500), .1);
+                  }
+                }
+              }
+              .icon,
+              .mat-icon {
+                background: rgba(accent-color(500),.1);
+                border-radius: 50%;
+                font-size: 22px;
+                height: auto;
+                margin-right: 11px;
+                padding: 11px;
+                transition: background .2s $animation;
+                width: auto;
+
+                .rtl & {
+                  margin-right: 0;
+                  margin-left: $module-rem;
+                }
+              }
+              .avatar {
+                border-radius: 50%;
+                height: 40px;
+                margin-right: $module-rem;
+                width: 40px;
+
+                .rtl & {
+                  margin-right: 0;
+                  margin-left: $module-rem;
+                }
+              }
+              .content {
+                font-size: .85rem;
+
+                .desc {
+                  display: block;
+                }
+                .date {
+                  display: block;
+                  font-size: .75rem;
+                  font-style: italic;
+                  margin-top: 4px;
+                  opacity: .6;
+                }
+                .meta {
+                  align-items: flex-end;
+                  display: flex;
+                  justify-content: space-between;
+                  line-height: 1.3;
+                  margin-bottom: 4px;
+
+                  .date {
+                    margin: 0 0 0 11px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

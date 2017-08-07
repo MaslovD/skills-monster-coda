@@ -1,0 +1,17 @@
+@import '../../../assets/sass/variable';
+
+:host {
+  display: block;
+  overflow-x: auto;
+
+  /deep/.ni-card {
+    margin: 0;
+    min-width: 600px;
+
+    .card-wrap {
+      .card-content {
+        padding: 0 !important;
+      }
+    }
+  }
+}

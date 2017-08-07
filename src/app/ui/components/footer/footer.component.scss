@@ -1,0 +1,34 @@
+@import '../../../../assets/sass/variable';
+
+:host {
+  align-items: center;
+  background: main-color(600);
+  background: -moz-linear-gradient(left, main-color(600) 0%, main-color(300) 100%);
+  background: -webkit-linear-gradient(left, main-color(600) 0%, main-color(300) 100%);
+  background: linear-gradient(to right, main-color(600) 0%, main-color(300) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='main-color(600)', endColorstr='main-color(300)',GradientType=1 );
+  color: $footer-color;
+  display: flex;
+  font-size: .8rem;
+  height: $module-rem * 4;
+  justify-content: space-between;
+  width: 100%;
+  @media #{$max543} {
+    font-size: .7rem;
+  }
+
+  .copyright,
+  .version {
+    padding: 10px ($module-rem * 2);
+  }
+  .copyright {
+    @media #{$max543} {
+      padding-right: 0;
+
+      .rtl & {
+        padding-left: 0;
+        padding-right: ($module-rem * 2);
+      }
+    }
+  }
+}

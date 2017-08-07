@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-6 col-xl-3">
+    <ni-card [customBgColor]="'#67a8e4'" [customColor]="'#67a8e4'" outline="true" class="info-card-2">
+      <div class="card-icon sli-people"></div>
+      <div class="card-desc">
+        <div class="count">12,254</div>
+        <div class="title">Visitors/day</div>
+      </div>
+    </ni-card>
+  </div>
+  <div class="col-md-6 col-xl-3">
+    <ni-card [customBgColor]="'#67a8e4'" [customColor]="'#67a8e4'" outline="true" class="info-card-2">
+      <div class="card-icon sli-layers"></div>
+      <div class="card-desc">
+        <div class="count">25,658</div>
+        <div class="title">Page views</div>
+      </div>
+    </ni-card>
+  </div>
+  <div class="col-md-6 col-xl-3">
+    <ni-card [customBgColor]="'#67a8e4'" [customColor]="'#67a8e4'" outline="true" class="info-card-2">
+      <div class="card-icon sli-diamond"></div>
+      <div class="card-desc">
+        <div class="count">$5 687</div>
+        <div class="title">Revenue/day</div>
+      </div>
+    </ni-card>
+  </div>
+  <div class="col-md-6 col-xl-3">
+    <ni-card [customBgColor]="'#67a8e4'" [customColor]="'#67a8e4'" outline="true" class="info-card-2">
+      <div class="card-icon sli-exclamation"></div>
+      <div class="card-desc">
+        <div class="count">5,86%</div>
+        <div class="title">Bounce rate</div>
+      </div>
+    </ni-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-6">
+    <ni-card title="Audience Overview">
+      <div class="chart-container">
+        <div id="amchart-1" [style.width.%]="100" [style.height.%]="100"></div>
+      </div>
+    </ni-card>
+  </div>
+
+  <div class="col-xl-6">
+    <ni-card title="Development">
+      <div class="chart-container">
+        <div id="amchart-2" [style.width.%]="100" [style.height.%]="100"></div>
+      </div>
+    </ni-card>
+  </div>
+
+  <div class="col-lg-6">
+    <ni-card class="mb-lg-0" [title]="'Changelog'" [customBgColor]="'rgba(44,67,91,0.97)'" [bgImage]="'assets/content/home-card-1.jpg'">
+      <ni-h-timeline [showYears]="false" [showDate]="false" [align]="'left'" [data]="timelineData"></ni-h-timeline>
+    </ni-card>
+  </div>
+
+  <div class="col-lg-6">
+    <ni-card class="mb-0" [title]="'To do list'" [customBgColor]="'rgba(44,67,91,0.95)'" [bgImage]="'assets/content/home-card-2.jpg'">
+      <md-list>
+        <md-list-item *ngFor="let folder of folders">
+          <md-icon md-list-avatar>{{folder.icon}}<ni-badge *ngIf="folder.badge" [color]="'danger'" [position]="'top-right'">{{folder.badge}}</ni-badge></md-icon>
+          <h4 md-line>{{folder.name}}</h4>
+          <p md-line><i>{{folder.updated}}</i></p>
+        </md-list-item>
+      </md-list>
+    </ni-card>
+  </div>
+</div>
