@@ -1,0 +1,78 @@
+[
+  {
+    "title": "Main",
+    "groupTitle" : true
+  },
+  {
+    "title": "Dashboard",
+    "icon": {
+      "class": "fa fa-home",
+      "bg": "rgba(255,255,255,0.1)",
+      "color": "#fff"
+    },
+    "routing": "/default-layout/dashboard",
+    "badge": {
+      "text": "New",
+      "color": "#fff",
+      "bg": "#E57373"
+    },
+    "sub": [
+      {
+        "title": "Skills",
+        "routing": "/default-layout/dashboard"
+      },
+      {
+        "title": "Dashboard v2",
+        "routing": "/default-layout/dashboard-2"
+      }
+    ]
+  },
+  {
+    "title": "Widgets",
+    "icon": {
+      "class": "fa fa-th",
+      "bg": "rgba(255,255,255,0.1)",
+      "color": "#fff"
+    },
+    "routing": "/default-layout/widgets"
+  },
+  {
+    "title": "Vacancy calendar",
+    "icon": {
+      "class": "fa fa-calendar",
+      "bg": "rgba(255,255,255,0.1)",
+      "color": "#fff"
+    },
+    "routing": "/default-layout/calendar"
+  },
+  {
+    "title": "Detailed info by",
+    "groupTitle" : true
+  },
+  {
+    "title": "Programming language",
+    "icon": {
+      "class": "fa fa-briefcase",
+      "bg": "rgba(255,255,255,0.1)",
+      "color": "#fff"
+    },
+    "sub": [
+      {
+        "title": "Java",
+        "routing": "/default-layout/button"
+      },
+      {
+        "title": "JavaScript",
+        "routing": "/default-layout/card"
+      },
+      {
+        "title": "Python",
+        "routing": "/default-layout/checkbox"
+      },
+      {
+        "title": "Ruby",
+        "routing": "/default-layout/chips"
+      }
+    ]
+  }
+]
