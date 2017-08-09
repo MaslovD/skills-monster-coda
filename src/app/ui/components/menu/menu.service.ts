@@ -3,10 +3,20 @@ import { Injectable } from '@angular/core';
 import { IMenuItem } from './menu-item';
 import { MENUITEMS } from './mock-menu-items';
 import { MENU } from '../../../../settings/menu';
+import { DataService } from '../../../service/data.service';
 
 @Injectable()
 export class MenuService {
+  public myItems: IMenuItem [];
+  constructor(private _dataService: DataService) { }
   getMenuItems(): Promise<IMenuItem[]> {
-    return Promise.resolve(MENUITEMS);
+
+   /* this._dataService
+      .GetAll()
+      .subscribe((data: IMenuItem[]) => this.myItems = data,
+        error => console.log(error),
+        () => console.log('Get all Items complete'));*/
+
+    return null; /*Promise.resolve(MENUITEMS);*/
   }
 }
