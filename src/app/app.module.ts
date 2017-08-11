@@ -13,6 +13,8 @@ import { PagesModule }                      from './pages/pages.module';
 import { DefaultLayoutComponent }           from './layouts/default/default.component';
 import { ExtraLayoutComponent }             from './layouts/extra/extra.component';
 
+import { DataService }                      from './service/data.service';
+
 @NgModule({
   declarations : [
     AppComponent,
@@ -31,6 +33,7 @@ import { ExtraLayoutComponent }             from './layouts/extra/extra.componen
     NiComponentsModule,
     PagesModule
   ],
+  providers: [ DataService ],
   bootstrap: [ AppComponent ]
 })
 
