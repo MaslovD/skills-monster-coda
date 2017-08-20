@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { IMenuItem } from './menu-item';
-import { MenuService } from './menu.service';
+import {IMenuItem} from './menu-item';
+import {MenuService} from './menu.service';
 
 @Component({
   moduleId: module.id,
@@ -16,10 +16,15 @@ import { MenuService } from './menu.service';
 export class MenuComponent implements OnInit {
   menuItems: IMenuItem[];
 
-  constructor( private menuService: MenuService ) { }
+
+  constructor(private menuService: MenuService) {
+  }
 
   getMenuItems(): void {
-    this.menuService.getMenuItems().then(menuItems => this.menuItems = menuItems);
+    this.menuService.getMenuItems()
+      .subscribe((menuItems: any) => {
+        this.menuItems = menuItems;
+      })
   }
 
   getLiClasses(item: any, isActive: any) {
@@ -30,6 +35,7 @@ export class MenuComponent implements OnInit {
       'disabled': item.disabled
     };
   }
+
   getStyles(item: any) {
     return {
       'background': item.bg,

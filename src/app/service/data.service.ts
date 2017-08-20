@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map'
 import {Observable} from 'rxjs/Observable';
-import { environment } from '../../../app.constants';
+import {environment} from '../../../app.constants';
 import {IMenuItem} from '../ui/components/menu/menu-item';
+import {MENUITEMS} from '../ui/components/menu/mock-menu-items';
 
 const API = environment.apiUrl + environment.apiVersion;
 
@@ -12,21 +13,30 @@ export class DataService {
 
   private actionUrl: string;
   private headers: Headers;
+  private resp: IMenuItem[];
+  private tstMnu: Observable<IMenuItem[]>;
 
-  constructor(private _http: Http) {
+  constructor(private http: Http) {
+    // localhost:8088/api/v1/app/menu/
 
-    this.actionUrl = API + 'myItem/';
-
+    this.actionUrl = API + 'menu/';
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
     this.headers.append('Accept', 'application/json');
+    this.headers.append('Access-Control-Allow-Origin', '*');
+
   }
 
   public GetAll = (): Observable<IMenuItem[]> => {
-    return this._http.get(this.actionUrl)
-      .map((response: Response) => <IMenuItem[]>response.json())
-      .catch(this.handleError);
+    /*console.log(this.actionUrl)
+
+     this._http.get(this.actionUrl).subscribe(
+     response => this.resp = response.text());*/
+
+    return this.http.get(this.actionUrl)
+      .map((response: Response) => <IMenuItem[]>response.json());
   }
+
   /*
    public GetSingle = (id: number): Observable<MyTypedItem> => {
    return this._http.get(this.actionUrl + id)
@@ -54,7 +64,7 @@ export class DataService {
    }
    */
   private handleError(error: Response) {
-    console.error(error);
+    //  console.error(error);
     return Observable.throw(error.json().error || 'Server error');
   }
 }
