@@ -4,6 +4,7 @@ import {IMenuItem} from './menu-item';
 import {MENUITEMS} from './mock-menu-items';
 import {MENU} from '../../../../settings/menu';
 import {DataService} from '../../../service/data.service';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class MenuService {
@@ -12,19 +13,17 @@ export class MenuService {
   constructor(private _dataService: DataService) {
   }
 
-  getMenuItems(): Promise<IMenuItem[]> {
+  getMenuItems(): Observable<IMenuItem[]> {
+      return this._dataService.GetAll()
+          // .catch((err) => {
+          //   this.messageService.addMsg({
+          //     severity: 'error', summary: 'Ошибка сервера', detail: 'Не удалось получить список меню'
+          //   });
+          //   return err
+          // })
 
-
-    this._dataService.GetAll()
-      .subscribe((data: IMenuItem[]) => {
-        this.myItems = data;
-        console.log(data);
-
-        },
-        error => console.log(error), () => console.log('Get all Items complete'));
-
-    //return Promise.resolve(this.myItems);
   }
+
 
   /*getMenuItems(): Promise<IMenuItem[]> {
    console.log(MENUITEMS);
@@ -32,3 +31,4 @@ export class MenuService {
 
 
 }
+

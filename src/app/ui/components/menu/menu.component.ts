@@ -21,7 +21,10 @@ export class MenuComponent implements OnInit {
   }
 
   getMenuItems(): void {
-    this.menuService.getMenuItems().then(menuItems => this.menuItems = menuItems);
+    this.menuService.getMenuItems()
+      .subscribe((menuItems: any) => {
+        this.menuItems = menuItems;
+      })
   }
 
   getLiClasses(item: any, isActive: any) {
