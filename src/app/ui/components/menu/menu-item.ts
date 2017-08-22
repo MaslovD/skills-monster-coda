@@ -27,7 +27,6 @@ export interface IMenuItemSub {
   sub?: IMenuItemSub[]
 }
 export interface IMenuItemBadge {
-  text?: string,
-  color?: string,
+  text?: string,  color?: string,
   bg?: string
 }
