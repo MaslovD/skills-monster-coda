@@ -75,6 +75,7 @@ import { Page500Component }                from './extra-pages/page-500/page-500
 import { PageNiButtonsComponent }          from './ni-components/buttons/buttons.component';
 import { PageNiHTimelineComponent }        from './ni-components/h-timeline/h-timeline.component';
 import { PageNiChatComponent }             from './ni-components/chat/chat.component';
+import {PageHotSkillsComponent} from "./hot-skills/hot-skills.component";
 
 @NgModule({
   imports: [
@@ -96,6 +97,7 @@ import { PageNiChatComponent }             from './ni-components/chat/chat.compo
     AmChartsModule
   ],
   declarations: [
+    PageHotSkillsComponent,
     PageDashboardComponent,
     PageDashboard2Component,
     PageButtonComponent,
@@ -160,6 +162,7 @@ import { PageNiChatComponent }             from './ni-components/chat/chat.compo
     PageNiChatComponent
   ],
   exports: [
+    PageHotSkillsComponent,
     PageDashboardComponent,
     PageDashboard2Component,
     PageButtonComponent,
